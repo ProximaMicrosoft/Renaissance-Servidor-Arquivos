@@ -14,7 +14,7 @@ const upload = multer(multerConfig);
 
 app.post('/enviararquivo', upload.single('image'), async function (req, res) {
     if (req.file.filename != "") {
-        return res.status(200).json({ "data": "Sucesso !" })
+        return res.status(200).json({ "data": "Sucesso !", "arquivo": req.file.filename })
     } else {
         return res.status(400).json({ "data": "Ocorreu algum erro !" })
     }
